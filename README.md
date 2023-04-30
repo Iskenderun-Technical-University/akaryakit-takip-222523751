@@ -1,4 +1,3 @@
-# akaryakit-takip-222523751
 # Akaryakıt Takip Sistemi
 Müşterilere verilecek akaryakıt ile pompa arasındaki senkronizasyonu sağlayan yazılım.
 
