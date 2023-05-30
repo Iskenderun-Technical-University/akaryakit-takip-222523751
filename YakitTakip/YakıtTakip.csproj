@@ -122,11 +122,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="arac.cs">
+    <Compile Include="Arac.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="arac.designer.cs">
-      <DependentUpon>arac.cs</DependentUpon>
+    <Compile Include="Arac.designer.cs">
+      <DependentUpon>Arac.cs</DependentUpon>
     </Compile>
     <Compile Include="Depo.cs">
       <SubType>Form</SubType>
@@ -134,11 +134,11 @@
     <Compile Include="Depo.designer.cs">
       <DependentUpon>Depo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain.cs">
+    <Compile Include="Anaform.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain.designer.cs">
-      <DependentUpon>FrmMain.cs</DependentUpon>
+    <Compile Include="Anaform.designer.cs">
+      <DependentUpon>Anaform.cs</DependentUpon>
     </Compile>
     <Compile Include="Personel.cs">
       <SubType>Form</SubType>
@@ -154,14 +154,14 @@
     <Compile Include="Raporlama.designer.cs">
       <DependentUpon>Raporlama.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="arac.resx">
-      <DependentUpon>arac.cs</DependentUpon>
+    <EmbeddedResource Include="Arac.resx">
+      <DependentUpon>Arac.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Depo.resx">
       <DependentUpon>Depo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain.resx">
-      <DependentUpon>FrmMain.cs</DependentUpon>
+    <EmbeddedResource Include="Anaform.resx">
+      <DependentUpon>Anaform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Personel.resx">
       <DependentUpon>Personel.cs</DependentUpon>

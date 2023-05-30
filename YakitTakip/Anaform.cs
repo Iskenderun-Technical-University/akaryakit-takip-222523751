@@ -7,13 +7,13 @@ using MySql.Data.MySqlClient;
 
 namespace YakıtTakip
 {
-    public partial class FrmMain : Form
+    public partial class Anaform : Form
     {
-        MySqlDataAdapter da_depo,da_arac,da_arac2,da_personel,da_ikmal;
+        MySqlDataAdapter da_depo, da_arac, da_arac2, da_personel, da_ikmal;
         DataTable dt_ikmal;
         MySqlConnection conn;
         int[] plaka;
-        public FrmMain()
+        public Anaform()
         {
             InitializeComponent();
             MySqlConnectionStringBuilder bag = new MySqlConnectionStringBuilder();
@@ -23,7 +23,7 @@ namespace YakıtTakip
             bag.Database = "YTakip";
             conn = new MySqlConnection(bag.ToString());
             MySqlCommand cmd_depo_sel = new MySqlCommand("Select * from depo", conn);
-           
+
             /*
             MySqlCommand cmd_depo_upd = new MySqlCommand("Update depo set Y1=@Y1, Y2=@Y2,Y3=@Y3 where DId=1",conn);
             cmd_depo_upd.Parameters.Add("@Y1", MySqlDbType.Int32, 11, "Y1");
@@ -32,7 +32,7 @@ namespace YakıtTakip
             */
             da_depo = new MySqlDataAdapter();
             da_depo.SelectCommand = cmd_depo_sel;
-           // da_depo.UpdateCommand = cmd_depo_upd;
+            // da_depo.UpdateCommand = cmd_depo_upd;
             MySqlCommand cmd_arac_sel = new MySqlCommand("Select * from arac", conn);
             da_arac = new MySqlDataAdapter();
             da_arac.SelectCommand = cmd_arac_sel;
@@ -41,11 +41,11 @@ namespace YakıtTakip
             da_arac2 = new MySqlDataAdapter();
             da_arac2.SelectCommand = cmd_arac2_sel;
 
-            MySqlCommand cmd_arac_ins = new MySqlCommand("insert into arac(AracP,AracT,CSaati) values(@plaka,@turu,@saati);",conn);
-            cmd_arac_ins.Parameters.Add("@plaka",MySqlDbType.VarChar,50,"AracP");
-            cmd_arac_ins.Parameters.Add("@turu",MySqlDbType.VarChar,50,"AracT");
-            cmd_arac_ins.Parameters.Add("@saati",MySqlDbType.Int32,11,"CSaati");
-            MySqlCommand cmd_arac_del = new MySqlCommand("delete from arac where AracId=@AracId",conn);
+            MySqlCommand cmd_arac_ins = new MySqlCommand("insert into arac(AracP,AracT,CSaati) values(@plaka,@turu,@saati);", conn);
+            cmd_arac_ins.Parameters.Add("@plaka", MySqlDbType.VarChar, 50, "AracP");
+            cmd_arac_ins.Parameters.Add("@turu", MySqlDbType.VarChar, 50, "AracT");
+            cmd_arac_ins.Parameters.Add("@saati", MySqlDbType.Int32, 11, "CSaati");
+            MySqlCommand cmd_arac_del = new MySqlCommand("delete from arac where AracId=@AracId", conn);
             cmd_arac_del.Parameters.Add("@AracId", MySqlDbType.Int32, 11, "AracId");
             MySqlCommand cmd_arac_upt = new MySqlCommand("Update arac set AracP=@AracP, AracT=@AracT, Csaati=@CSaati where AracId=@AracId", conn);
             cmd_arac_upt.Parameters.Add("@AracP", MySqlDbType.VarChar, 50, "AracP");
@@ -58,8 +58,8 @@ namespace YakıtTakip
             da_arac.InsertCommand = cmd_arac_ins;
 
             //*********************************************************
-            MySqlCommand cmd_pers_sel = new MySqlCommand("Select * from personel",conn);
-            MySqlCommand cmd_pers_ins = new MySqlCommand("insert into personel(PId,PAd) values(@PId,@PAd)",conn);
+            MySqlCommand cmd_pers_sel = new MySqlCommand("Select * from personel", conn);
+            MySqlCommand cmd_pers_ins = new MySqlCommand("insert into personel(PId,PAd) values(@PId,@PAd)", conn);
             cmd_pers_ins.Parameters.Add("@PId", MySqlDbType.Int32, 11, "PId");
             cmd_pers_ins.Parameters.Add("@PAd", MySqlDbType.VarChar, 50, "PAd");
             MySqlCommand cmd_pers_del = new MySqlCommand("delete from personel where PId=@PId", conn);
@@ -71,21 +71,21 @@ namespace YakıtTakip
             da_personel.SelectCommand = cmd_pers_sel;
             da_personel.InsertCommand = cmd_pers_ins;
             da_personel.DeleteCommand = cmd_pers_del;
-           
+
             //*********************************************************
 
-            MySqlCommand cmd_ikmal_sel = new MySqlCommand("Select IkmalId,ikmal.AracId, AracP,YTuru,Miktar,Mevcut,ikmal.CSaati, Tarih, PAd, ikmal.PId from ikmal,arac,personel where ikmal.PId=personel.PId and ikmal.AracId=arac.AracId",conn);
-            da_ikmal=new MySqlDataAdapter();
+            MySqlCommand cmd_ikmal_sel = new MySqlCommand("Select IkmalId,ikmal.AracId, AracP,YTuru,Miktar,Mevcut,ikmal.CSaati, Tarih, PAd, ikmal.PId from ikmal,arac,personel where ikmal.PId=personel.PId and ikmal.AracId=arac.AracId", conn);
+            da_ikmal = new MySqlDataAdapter();
             da_ikmal.SelectCommand = cmd_ikmal_sel;
 
-            MySqlCommand cmd_ikmal_ins = new MySqlCommand("Insert into ikmal(AracId,YTuru,Miktar,Mevcut,CSaati,Tarih,PId) values(@AracId,@YTuru,@Miktar,@Mevcut,@CSaati,@Tarih,@PId)",conn);
-            cmd_ikmal_ins.Parameters.Add("@AracId",MySqlDbType.Int32,11,"AracId");
-            cmd_ikmal_ins.Parameters.Add("@YTuru",MySqlDbType.VarChar,50,"YTuru");
-            cmd_ikmal_ins.Parameters.Add("@Miktar",MySqlDbType.Int32,11,"Miktar");
-            cmd_ikmal_ins.Parameters.Add("@Mevcut",MySqlDbType.Int32,11,"Mevcut");
-            cmd_ikmal_ins.Parameters.Add("@CSaati",MySqlDbType.Int32,11,"CSaati");
+            MySqlCommand cmd_ikmal_ins = new MySqlCommand("Insert into ikmal(AracId,YTuru,Miktar,Mevcut,CSaati,Tarih,PId) values(@AracId,@YTuru,@Miktar,@Mevcut,@CSaati,@Tarih,@PId)", conn);
+            cmd_ikmal_ins.Parameters.Add("@AracId", MySqlDbType.Int32, 11, "AracId");
+            cmd_ikmal_ins.Parameters.Add("@YTuru", MySqlDbType.VarChar, 50, "YTuru");
+            cmd_ikmal_ins.Parameters.Add("@Miktar", MySqlDbType.Int32, 11, "Miktar");
+            cmd_ikmal_ins.Parameters.Add("@Mevcut", MySqlDbType.Int32, 11, "Mevcut");
+            cmd_ikmal_ins.Parameters.Add("@CSaati", MySqlDbType.Int32, 11, "CSaati");
             cmd_ikmal_ins.Parameters.Add("@Tarih", MySqlDbType.VarChar, 50, "Tarih");
-            cmd_ikmal_ins.Parameters.Add("@PId",MySqlDbType.Int32,11,"PId");
+            cmd_ikmal_ins.Parameters.Add("@PId", MySqlDbType.Int32, 11, "PId");
             da_ikmal.InsertCommand = cmd_ikmal_ins;
 
             dt_ikmal = new DataTable();
@@ -98,7 +98,7 @@ namespace YakıtTakip
         }
         public void ikmal()
         {
-           
+
             dataGridView1.DataSource = dt_ikmal;
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Visible = false;
@@ -112,9 +112,9 @@ namespace YakıtTakip
             for (int s = 0; s < dt_arac.Rows.Count; s++)
             {
                 caract.Items.Add(dt_arac.Rows[s].ItemArray[1].ToString());
-               
+
             }
-            
+
         }
         public void depo()
         {
@@ -141,7 +141,7 @@ namespace YakıtTakip
 
         private void araçTanımlaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            arac arc = new arac(da_arac);
+            Arac arc = new Arac(da_arac);
             arc.ShowDialog();
         }
 
@@ -160,21 +160,19 @@ namespace YakıtTakip
 
         private void raporlamaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Raporlama rpr = new Raporlama(da_arac2,conn);
+            Raporlama rpr = new Raporlama(da_arac2, conn);
             rpr.ShowDialog();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-           
-            
+            this.Text = "ANA FORM";
         }
 
         private void caract_SelectedIndexChanged(object sender, EventArgs e)
         {
             caracp.Items.Clear();
-            MySqlCommand cmd_suz = new MySqlCommand("Select * from arac with(nolock) where AracT='"+caract.Text+"'",conn);
+            MySqlCommand cmd_suz = new MySqlCommand("Select * from arac where AracT='" + caract.Text + "'", conn);
             MySqlDataAdapter da_suz = new MySqlDataAdapter();
             da_suz.SelectCommand = cmd_suz;
             dt_arac = new DataTable();
@@ -184,10 +182,7 @@ namespace YakıtTakip
             {
                 caracp.Items.Add(dt_arac.Rows[s].ItemArray[1].ToString());
                 plaka[s] = Convert.ToInt32(dt_arac.Rows[s].ItemArray[0].ToString());
-                
-
             }
-            
         }
 
         private void label16_Click(object sender, EventArgs e)
@@ -196,15 +191,13 @@ namespace YakıtTakip
             {
                 try
                 {
-                    MySqlCommand cmd_per_bul = new MySqlCommand("Select PAd from personel with(nolock) where PId='" + tpsicil.Text + "'", conn);
-
+                    MySqlCommand cmd_per_bul = new MySqlCommand("Select PAd from personel where PId='" + tpsicil.Text + "'", conn);
                     tpisim.Text = cmd_per_bul.ExecuteScalar().ToString();
-
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    MessageBox.Show(ex.Message);
                 }
-               
             }
         }
 
@@ -217,7 +210,7 @@ namespace YakıtTakip
                 int depo = 0;
                 if (cyakit.Text == "") { }
                 else if (cyakit.Text == "Yakıt")
-                { 
+                {
                     depo = Convert.ToInt32(lyakit.Text.ToString());
                     sorgu = "Update depo set Y1=@Y1 where 1=1";
                 }
@@ -235,7 +228,7 @@ namespace YakıtTakip
                 if (depo > Convert.ToInt32(tmiktar.Text))
                 {
                     DataRow dr = dt_ikmal.NewRow();
-                   
+
                     dr["AracId"] = Convert.ToInt32(plaka[secilen]);
                     dr["YTuru"] = cyakit.Text;
                     dr["Miktar"] = Convert.ToInt32(tmiktar.Text);
@@ -247,7 +240,7 @@ namespace YakıtTakip
                     da_ikmal.Update(dt_ikmal);
                     ikmal();
 
-                    int yenidepo = depo-Convert.ToInt32(tmiktar.Text);
+                    int yenidepo = depo - Convert.ToInt32(tmiktar.Text);
                     MySqlCommand cmd2 = new MySqlCommand(sorgu, conn);
                     cmd2.Parameters.AddWithValue("@Y1", yenidepo);
                     cmd2.ExecuteNonQuery();

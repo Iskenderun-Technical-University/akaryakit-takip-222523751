@@ -1,6 +1,6 @@
 ﻿namespace YakıtTakip
 {
-    partial class FrmMain
+    partial class Anaform
     {
         /// <summary>
         /// Required designer variable.

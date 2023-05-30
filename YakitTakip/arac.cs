@@ -11,11 +11,11 @@ using MySql.Data.MySqlClient;
 
 namespace YakıtTakip
 {
-    public partial class arac : Form
+    public partial class Arac : Form
     {
         MySqlDataAdapter da_arac;
         DataTable dt;
-        public arac(MySqlDataAdapter da)
+        public Arac(MySqlDataAdapter da)
         {
             InitializeComponent();
             da_arac = da;

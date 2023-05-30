@@ -104,6 +104,7 @@
             this.Name = "Raporlama";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Raporlama";
+            this.Load += new System.EventHandler(this.Raporlama_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

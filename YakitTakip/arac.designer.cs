@@ -1,6 +1,6 @@
 ﻿namespace YakıtTakip
 {
-    partial class arac
+    partial class Arac
     {
         /// <summary>
         /// Required designer variable.

@@ -57,14 +57,8 @@ namespace YakıtTakip
                 MySqlCommand cmd2 = new MySqlCommand("Update depo set Y3=@Y1 where 1=1", conn_form2);
                 cmd2.Parameters.AddWithValue("@Y1", sonuc);
                 cmd2.ExecuteNonQuery();
-
-
             }
             depo();
-            
-
-           
-
         }
         public void depo()
         {
@@ -82,7 +76,7 @@ namespace YakıtTakip
 
         private void Depo_Load(object sender, EventArgs e)
         {
-
+            this.Text = "DEPO";
         }
 
         private void button2_Click(object sender, EventArgs e)

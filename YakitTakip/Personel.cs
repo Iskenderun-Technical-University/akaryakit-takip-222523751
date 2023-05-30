@@ -33,7 +33,7 @@ namespace YakıtTakip
 
         private void Personel_Load(object sender, EventArgs e)
         {
-
+            this.Text = "PERSONEL";
         }
     }
 }
