@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YakıtTakip", "YakıtTakip\YakıtTakip.csproj", "{1DB4C030-B50E-4669-9C8B-8BA4C9E9570C}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33423.256
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YakıtTakip", "YakitTakip\YakıtTakip.csproj", "{1DB4C030-B50E-4669-9C8B-8BA4C9E9570C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +19,8 @@ Global
 		{1DB4C030-B50E-4669-9C8B-8BA4C9E9570C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DB4C030-B50E-4669-9C8B-8BA4C9E9570C}.Debug|x64.ActiveCfg = Debug|x64
 		{1DB4C030-B50E-4669-9C8B-8BA4C9E9570C}.Debug|x64.Build.0 = Debug|x64
-		{1DB4C030-B50E-4669-9C8B-8BA4C9E9570C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{1DB4C030-B50E-4669-9C8B-8BA4C9E9570C}.Debug|x86.Build.0 = Debug|Any CPU
+		{1DB4C030-B50E-4669-9C8B-8BA4C9E9570C}.Debug|x86.ActiveCfg = Debug|x86
+		{1DB4C030-B50E-4669-9C8B-8BA4C9E9570C}.Debug|x86.Build.0 = Debug|x86
 		{1DB4C030-B50E-4669-9C8B-8BA4C9E9570C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DB4C030-B50E-4669-9C8B-8BA4C9E9570C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1DB4C030-B50E-4669-9C8B-8BA4C9E9570C}.Release|x64.ActiveCfg = Release|x64
@@ -28,5 +30,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {268C6F82-BF1B-4C38-9599-0140BDA0B901}
 	EndGlobalSection
 EndGlobal
